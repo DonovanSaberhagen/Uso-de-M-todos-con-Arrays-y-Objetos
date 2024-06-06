@@ -80,15 +80,14 @@ dental.forEach(consulta => {
   
   const pacientesTotales = dental.concat(traumatologia).concat(radiologia);
 
-  const nombresUnicos = new Set();
+  const nombresUnicos = new Set(); // para remover contenido duplicado
   pacientesTotales.forEach(paciente => nombresUnicos.add(paciente.nombre));
   const nombresArray = Array.from(nombresUnicos);
+  console.log(pacientesTotales);
 
-  nombresArray.forEach(nombre => {
-  const parrafoNombre = document.createElement("p");
-  parrafoNombre.textContent = nombre;
-  document.body.appendChild(parrafoNombre);
-
+  pacientesTotales.forEach(consulta => {
+    document.write(` - ${consulta.paciente}`);
+    document.write("<br>"); // salto de línea
   });
 
 
